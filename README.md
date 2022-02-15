@@ -31,6 +31,7 @@ sudo uname -a; mokutil --sb-state; lsusb; rfkill list all; dkms status; iw dev
   * Supports wireless security for WEP, WPA TKIP and WPA2 AES PSK
   * Supports site survey scan and manual connect
   * Supports WPA/WPA2 TLS client
+- IEEE 802.11k Client and AP mode support
 - Power saving modes
 - Wireshark compatible
 - Aircrack-ng compatible
