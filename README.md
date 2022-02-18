@@ -48,6 +48,7 @@ sudo uname -a; mokutil --sb-state; lsusb; rfkill list all; dkms status; iw dev
   * P2P-GO
   * Concurrent (see `Concurrent_Mode.md` in the `docs` folder.)
 - Log level control
+- LED control
 - Power saving control
 - VHT control (allows 80 MHz channel width in AP mode)
 - SU Beamformee and MU Beamformee control
