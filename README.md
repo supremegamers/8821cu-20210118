@@ -31,7 +31,7 @@ sudo uname -a; mokutil --sb-state; lsusb; rfkill list all; dkms status; iw dev
   * Supports wireless security for WEP, WPA TKIP and WPA2 AES PSK
   * Supports site survey scan and manual connect
   * Supports WPA/WPA2 TLS client
-- IEEE 802.11k Client and AP mode support
+- IEEE 802.11k support
 - Power saving modes
 - Wireshark compatible
 - Aircrack-ng compatible
@@ -546,11 +546,16 @@ https://w1.fi/cgit/
 Note: There is a file in the `docs` folder called `Update_wpa_supplicant_v3a.md`
 that may help with updating wpa_supplicant.
 
-WPA3-SAE is working well in AP mode using hostapd with the Raspberry Pi OS. 
+Note: Some distros appear to have versions of Network Manager that are not
+compatible with this driver. If that is the case, you may need to STOP or KILL
+Network Manager and connect using wpa_supplicant.
+
+WPA3-SAE is working well in AP mode using hostapd with current versions of the
+Raspberry Pi OS. 
 
 
-Question: I bought two rtl8811cu based adapters and am planning to run one of
-them as an AP and another as a WiFi client. How do I set that up?
+Question: I bought two rtl8811cu based adapters and am planning to use both in
+the same computer. How do I set that up?
 
 Answer: You can't without considerable technical skills.  Realtek drivers do not
 support more than one adapter with the same chipset in the same computer. You
