@@ -931,7 +931,7 @@ s32	rtl8821cu_init_xmit_priv(PADAPTER padapter)
 
 #ifdef PLATFORM_LINUX
 	tasklet_init(&pxmitpriv->xmit_tasklet,
-		     (void(*)(unsigned long))rtl8821cu_xmit_tasklet,
+		     (void(*))rtl8821cu_xmit_tasklet,
 		     (unsigned long)padapter);
 #endif
 #ifdef CONFIG_TX_EARLY_MODE
