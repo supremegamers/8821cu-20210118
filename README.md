@@ -61,7 +61,7 @@ sudo uname -a; mokutil --sb-state; lsusb; rfkill list all; dkms status; iw dev
 ### Compatible Kernels
 
 - Kernels: 4.14 - 5.11 (Realtek)
-- Kernels: 5.12 - 5.17 (community support)
+- Kernels: 5.12 - 5.18 (community support)
 
 ### Tested Linux Distributions
 
@@ -90,13 +90,15 @@ the Installation Steps can be improved.
 
 - openSUSE Tumbleweed (rolling) (kernel 5.15)
 
-- Raspberry Pi OS (2021-10-30) (ARM 32 bit) (kernel 5.10)
+- Raspberry Pi OS (2022-04-04) (ARM 32 bit and 64 bit) (kernel 5.15)
 
 - Raspberry Pi Desktop (x86 32 bit) (kernel 4.19)
 
 - Solus
 
-- Ubuntu 20.xx (kernels 5.4 and 5.8) and 21.xx (kernels 5.11 and 5.13)
+- Ubuntu 20.xx (kernels 5.4 and 5.8 and 5.13)
+
+- Ubuntu 22.04 (kernel 5.15)
 
 ### Download Locations for Tested Linux Distributions
 
@@ -581,6 +583,28 @@ Answer: Yes. Post a message in `Issues` or `Discussions` if interested.
 Question: I am having problems with my adapter and I use Virtualbox?
 
 Answer: This [article](https://null-byte.wonderhowto.com/forum/wifi-hacking-attach-usb-wireless-adapter-with-virtual-box-0324433/) may help.
+
+Question: I have an adapter with the 8821cu chipset which means it supports
+bluetooth. The bluetooth works but the wifi does not. What is wrong?
+
+Answer: There appears to be a hardware bug in some 8821cu based adapters
+and the fix is to set the driver option ( rtw_RFE_type ) in 8821cu.conf.
+The easiest way to edit 8821cu.conf is to run the following from the driver
+directory:
+
+```
+sudo ./edit-options.sh
+```
+
+Once in the document, you can scroll down to the documentation about
+rtw_RFE_type. You will likely have to experiment to find out what setting
+works best for your adapter but a could place to start is probably...
+
+```
+rtw_RFE_type=7
+```
+
+Simply add that option to the end of the `options` line, save and reboot.
 
 -----
 
