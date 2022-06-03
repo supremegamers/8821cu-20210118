@@ -42,8 +42,8 @@ sudo uname -a; mokutil --sb-state; lsusb; rfkill list all; dkms status; iw dev
 - Supported interface modes
   * IBSS
   * Managed
-  * Monitor (see `Monitor_Mode.md` in the `docs` folder.)
-  * AP (see `AP_Mode-Bridged_Wireless_Access_Point.md` in the `docs` folder.)
+  * Monitor
+  * AP
   * P2P-client
   * P2P-GO
   * Concurrent (see `Concurrent_Mode.md` in the `docs` folder.)
