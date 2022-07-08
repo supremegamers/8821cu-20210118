@@ -61,7 +61,7 @@ sudo uname -a; mokutil --sb-state; lsusb; rfkill list all; dkms status; iw dev
 ### Compatible Kernels
 
 - Kernels: 4.19 - 5.11 (Realtek)
-- Kernels: 5.12 - 5.18 (community support)
+- Kernels: 5.12 - 5.19 (community support)
 
 ### Tested Linux Distributions
 
@@ -82,10 +82,6 @@ the Installation Steps can be improved.
 
 - Kali Linux (kernel 5.10)
 
-- Linux Mint 20.2 (Linux Mint based on Ubuntu) (kernels 5.4 and 5.13)
-
-- LMDE 4 (Linux Mint based on Debian) (kernel 4.19)
-
 - Manjaro 20.1 (kernel 5.9) and 21.1 (kernel 5.13)
 
 - openSUSE Tumbleweed (rolling) (kernel 5.15)
@@ -96,10 +92,6 @@ the Installation Steps can be improved.
 
 - Solus
 
-- Ubuntu 20.xx (kernels 5.4 and 5.8)
-
-- Ubuntu 21.xx (kernels 5.11 and 5.13)
-
 - Ubuntu 22.04 (kernel 5.15)
 
 ### Download Locations for Tested Linux Distributions
@@ -108,7 +100,6 @@ the Installation Steps can be improved.
 - [Debian](https://www.debian.org/)
 - [Fedora](https://getfedora.org)
 - [Kali Linux](https://www.kali.org/)
-- [Linux Mint](https://www.linuxmint.com)
 - [Manjaro](https://manjaro.org)
 - [openSUSE](https://www.opensuse.org/)
 - [Raspberry Pi OS](https://www.raspberrypi.org)
@@ -418,14 +409,14 @@ Note: Documentation for Driver Options is included in the file `8821cu.conf`.
 
 -----
 
-### Removal of the Driver ( remove-driver.sh )
+### Removal of the Driver ( remove-driver.sh or remove-driver-no-dkms.sh )
 
 Note: Removing the driver is advised in the following situations:
 
 - if driver installation fails
 - if the driver is no longer needed
 - if a new or updated version of the driver needs to be installed
-- if a distro version upgrade is going to be installed (i.e. going from kernel 5.10 to kernel 5.15)
+- if a distro version upgrade is going to be installed (going from kernel 5.10 to kernel 5.15)
 
 Note: The following removes everything that has been installed, with the
 exception of the packages installed in Step 3 and the driver directory.
