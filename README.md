@@ -232,22 +232,22 @@ sudo reboot
 
 #### Step 3: Install the required packages (select the option for the OS you are using)
 
-- Option for Raspberry Pi OS (ARM/ARM64), for Raspberry Pi Desktop (x86) see below
+- Option for Raspberry Pi OS (ARM/ARM64)
 
 ```
-sudo apt install -y raspberrypi-kernel-headers bc build-essential dkms git
+sudo apt install -y raspberrypi-kernel-headers build-essential bc dkms git
 ```
 
-- Option for Debian, Kali, Linux Mint Debian Edition (LMDE) and Raspberry Pi Desktop (x86)
+- Option for Debian, Kali, and Raspberry Pi Desktop (x86)
 
 ```
-sudo apt install -y linux-headers-$(uname -r) build-essential dkms git libelf-dev
+sudo apt install -y linux-headers-$(uname -r) build-essential bc dkms git libelf-dev
 ```
 
-- Option for Ubuntu (all flavors) and Linux Mint
+- Option for Ubuntu (all flavors)
 
 ```
-sudo apt install -y dkms git build-essential
+sudo apt install -y build-essential dkms git 
 ```
 
 - Option for Fedora
