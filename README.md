@@ -577,14 +577,14 @@ Question: The driver installation script completed successfully and the
 driver is installed but does not seem to be working. What is wrong?
 
 Answer: Turn secure boot off to see if that allows the driver to work.
-This driver is primarily tested on Debian based distros such as Linux
-Mint, Ubuntu, Raspberry Pi OS and Kali. In an attempt to make this
-driver work well on many Linux distros, other distros, including the Arch
-based Manjaro is used for testing. Currently I do not have installations
-of Fedora or OpenSUSE available for testing and reply on user reports of
-success or failure. I have two test systems with secure boot on so as to
-test secure boot. I have not seen any secure boot problems with Debian
-based systems and I don't remember problems with Manjaro.
+This driver is primarily tested on Debian based distros such as Ubuntu,
+Raspberry Pi OS and Kali. In an attempt to make this driver work well on
+many Linux distros, other distros, including the Arch based Manjaro is
+used for testing. Currently I do not have installations of Fedora or
+OpenSUSE available for testing and reply on user reports of success or
+failure. I have two test systems with secure boot on so as to test secure
+boot. I have not seen any secure boot problems with Debian based systems
+and I don't remember problems with Manjaro.
 
 dkms is used in the installation script. It helps with a lot of issues that
 will come up if a simple manual installation is used. dkms has the
@@ -618,7 +618,7 @@ Question: I have an adapter with the 8821cu chipset which means it supports
 bluetooth. The bluetooth works but the wifi does not. What is wrong?
 
 Answer: There appears to be a hardware bug in some 8821cu based adapters
-and the fix is to set the driver option ( rtw_RFE_type ) in 8821cu.conf.
+and the fix is to set the driver option ( `rtw_RFE_type` ) in 8821cu.conf.
 The easiest way to edit 8821cu.conf is to run the following from the driver
 directory:
 
@@ -627,8 +627,8 @@ sudo ./edit-options.sh
 ```
 
 Once in the document, you can scroll down to the documentation about
-rtw_RFE_type. You will likely have to experiment to find out what setting
-works best for your adapter but a could place to start is probably...
+`rtw_RFE_type`. You will likely have to experiment to find out what setting
+works best for your adapter but a good place to start is probably...
 
 ```
 rtw_RFE_type=7
