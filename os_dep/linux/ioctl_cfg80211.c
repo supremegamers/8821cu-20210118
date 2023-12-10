@@ -5314,7 +5314,6 @@ static int cfg80211_rtw_add_beacon(struct wiphy *wiphy, struct net_device *ndev,
 	rtw_mi_scan_abort(adapter, _TRUE);
 	rtw_mi_buddy_set_scan_deny(adapter, 300);
 	ret = rtw_add_beacon(adapter, info->head, info->head_len, info->tail, info->tail_len);
-
 exit:
 	return ret;
 }
@@ -5436,7 +5435,11 @@ exit:
 }
 
 static int cfg80211_rtw_change_beacon(struct wiphy *wiphy, struct net_device *ndev,
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(6, 7, 0))
+		struct cfg80211_ap_update *info)
+#else
 		struct cfg80211_beacon_data *info)
+#endif
 {
 	int ret = 0;
 	_adapter *adapter = (_adapter *)rtw_netdev_priv(ndev);
@@ -5453,10 +5456,17 @@ static int cfg80211_rtw_change_beacon(struct wiphy *wiphy, struct net_device *nd
 		rtw_cfg80211_set_proberesp_ies(ndev, info->proberesp_ies, info->proberesp_ies_len);
 #endif /* not_yet */
 
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(6, 7, 0))
+	if (info->beacon.assocresp_ies_len > 0)
+		rtw_cfg80211_set_assocresp_ies(ndev, info->beacon.assocresp_ies, info->beacon.assocresp_ies_len);
+
+	ret = rtw_add_beacon(adapter, info->beacon.head, info->beacon.head_len, info->beacon.tail, info->beacon.tail_len);
+#else
 	if (info->assocresp_ies_len > 0)
 		rtw_cfg80211_set_assocresp_ies(ndev, info->assocresp_ies, info->assocresp_ies_len);
 
 	ret = rtw_add_beacon(adapter, info->head, info->head_len, info->tail, info->tail_len);
+#endif
 
 	return ret;
 }

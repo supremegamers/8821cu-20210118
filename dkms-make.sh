@@ -1,7 +1,10 @@
 #!/bin/sh
 
+# Warning: Do not run this script in a terminal. It is designed to be
+#          run from another script.
+
 # SMEM needs to be set here if dkms build is not initiated by install-driver.sh
-SMEM=$(LANG=C free | awk '/Mem:/ { print $2 }')
+SMEM=$(LC_ALL=C free | awk '/Mem:/ { print $2 }')
 
 # sproc needs to be set here if dkms build is not initiated by install-driver.sh
 sproc=$(nproc)
@@ -10,6 +13,9 @@ sproc=$(nproc)
 if [ "$sproc" -gt 1 ]; then
 	if [ "$SMEM" -lt 1400000 ]; then
 		sproc=2
+	fi
+	if [ "$SMEM" -lt 700000 ]; then
+		sproc=1
 	fi
 fi
 
